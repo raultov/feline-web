@@ -5,16 +5,46 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
+
+export interface UserLogged {
+  name: string;
+  email: string;
+  loggedIn: boolean;
+}
+
 @Injectable()
 export class LoginService {
 
+  userLogged: UserLogged = {
+    name: 'hola',
+    email: 'holita@adios.com',
+    loggedIn: true
+  };
+
+  userNotLogged: UserLogged = {
+    name: '',
+    email: '',
+    loggedIn: false
+  };
   // Observable navItem source
-  _navItemSource = new BehaviorSubject<number>(3);
+  _navItemSource = new BehaviorSubject<UserLogged>(this.userNotLogged);
   // Observable navItem stream
   navItem$ = this._navItemSource.asObservable();
+
   // service command
-  changeNav(number) {
-    this._navItemSource.next(number);
+  logged() {
+    // this._navItemSource.next(UserLogged);
+    this._navItemSource.next(this.userLogged);
+  }
+
+  notLoggedIn() {
+    // this._navLoggedSource.next(false);
+    let myUserLogged: UserLogged = {
+      name: '',
+      email: '',
+      loggedIn: false
+    };
+    this._navItemSource.next(myUserLogged);
   }
 
   constructor(private http: Http,

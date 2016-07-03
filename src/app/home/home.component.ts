@@ -32,10 +32,10 @@ export class HomeComponent implements OnInit {
     this.loginService = loginService;
   }
 
-  changeName(item: number) {
-    console.log('selected nav item ' + item);
-    this.loginService.changeNav(item);
+  notLogged() {
+    this.loginService.notLoggedIn();
   }
+
 /*
   onChangeTipoEvento(newTipoEvento) {
     this.selectedTipoEvento = newTipoEvento;

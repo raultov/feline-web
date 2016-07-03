@@ -14,9 +14,16 @@
         <li><a [routerLink]="['/']">Home</a></li>
         <li><a [routerLink]="['/simplebind']">Simplebind</a></li>
         <li><a [routerLink]="['/todolist']">Todolist</a></li>
-        <li><a href="#">{{item}}</a></li>
+        <!--<li><a href="#">{{userLogged.email}}</a></li>-->
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+
+      <ul *ngIf="userLogged.loggedIn" class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#"><b>{{userLogged.email}}</b></a>
+        </li>
+      </ul>
+
+      <ul *ngIf="!userLogged.loggedIn" class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
           <ul id="login-dp" class="dropdown-menu">

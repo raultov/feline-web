@@ -3,7 +3,7 @@ import {CORE_DIRECTIVES} from '@angular/common';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 import { FormBuilder, ControlGroup, Control, AbstractControl, FORM_DIRECTIVES, Validators } from '@angular/common';
 
-import { LoginService } from '../login/login.service';
+import { LoginService, UserLogged } from '../login/login.service';
 
 import { Subscription } from 'rxjs/Subscription';
 
@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     password: AbstractControl;
 
     subscription: Subscription;
-    item: Number;
+    userLogged: UserLogged;
 
     constructor(private loginService: LoginService,
                 private formBuilder: FormBuilder,
@@ -33,9 +33,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     ngOnInit() {
       this.subscription = this.loginService.navItem$.subscribe(
         item =>  {
-            this.item = item;
+            this.userLogged = item;
             this.cd.markForCheck(); // marks path
-            console.log(this.item);
+            console.log(this.userLogged.email);
         }
       );
 
@@ -67,9 +67,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.loginService.auth(this.username.value, this.password.value).subscribe(
         data => {
           localStorage.setItem('token', data);
+          this.userLogged.loggedIn = true;
+          this.userLogged.name = 'My Name';
+          this.userLogged.email = 'my.email@example.com';
+          this.cd.markForCheck(); // marks path
           console.log('Token: ' + data);
         },
         err => {
+          this.userLogged.loggedIn = false;
+          this.cd.markForCheck(); // marks path
           console.log('Credenciales inválidas');
         }
       );
