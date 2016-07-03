@@ -1,0 +1,524 @@
+<html>
+  <head>
+    <title>Angular 2 QuickStart</title>
+    <base href=".">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- build:css assets/bundle.css -->
+    
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.css">
+    
+    <!-- app:css -->
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+
+
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="../node_modules/datatables.net-bs/css/dataTables.bootstrap.css"/>
+
+    <style>
+    .v-align {
+          float: none;
+          display: inline-block;
+          vertical-align: middle;
+      }
+    </style>
+
+  </head>
+  <body>
+    
+    <as-main-app>
+      <i class="center-fix main-spinner fa fa-spin fa-spinner"></i>
+    </as-main-app>
+
+
+    <div class="container">
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form class="form-horizontal" action="#">
+          <div class="form-group ">
+           <label class="control-label col-sm-2" for="select">Área</label>
+           <div class="col-sm-6">
+            <select class="select form-control" id="select" name="select">
+             <option value="Alimentación">Alimentación</option>
+             <option value="Construcci&oacute;n">Construcci&oacute;n</option>
+             <option value="Envase">Envase</option>
+            </select>
+           </div>
+          </div>
+
+          <div class="form-group" id="div_radio">
+           <div class="col-sm-offset-2 col-sm-10">
+            <label class="radio-inline">
+             <input name="radio" type="radio" value="Encuentro"/>
+             Encuentro
+            </label>
+            <label class="radio-inline">
+             <input name="radio" type="radio" value="Jornada"/>
+             Jornada
+            </label>
+           </div>
+          </div>
+
+          <div class="form-group">
+           <label class="control-label col-sm-2" for="subject">Año
+           </label>
+           <div class="col-sm-4">
+            <input class="form-control" id="subject" name="subject" type="text"/>
+           </div>
+
+           <div class="col-sm-2">
+            <button class="btn btn-primary" name="submit" type="submit">
+             Buscar
+            </button>
+           </div>
+          </div>
+          <!-- Buscar debajo
+           <div class="form-group">
+             <div class="col-sm-offset-2 col-sm-2">
+               <button class="btn btn-primary" name="submit" type="submit">
+                Buscar
+               </button>
+             </div>
+            </div>
+          -->
+
+         </form>
+      </div>
+      <!-- panel-body -->
+    </div>
+    <!-- panel-default -->
+
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h3 class="panel-title">Eventos del Área</h3></div>
+
+      <table class="table table-striped table-bordered table-hover table-condensed">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Evento</th>
+            <th>Edición</th>
+            <th>Accción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ECUENTRO</td>
+            <td>Encuentro Alimarket Gran Consumo</td>
+            <td>5</td>
+            <td><button class="btn btn-success">Seleccionar</button></td>
+          </tr>
+          <tr>
+            <td>JORNADA</td>
+            <td>Jornada Alimarket Construcción</td>
+            <td>2</td>
+            <td><button class="btn btn-success">Seleccionar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.panel panel-default -->
+
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-body">
+        <h2 class="panel-title">II Edición Encuentro Alimarket Gran Consumo</h2></div>
+    </div>
+
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h3 class="panel-title">Inscripciones / Asistentes del evento</h3></div>
+
+
+        <table id="example" class="table table-hover">
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Office</th>
+                  <th>Age</th>
+                  <th>Start date</th>
+                  <th>Salary</th>
+              </tr>
+          </thead>
+          <tfoot>
+              <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Office</th>
+                  <th>Age</th>
+                  <th>Start date</th>
+                  <th>Salary</th>
+              </tr>
+          </tfoot>
+          <tbody>
+              <tr>
+                  <td>Tiger Nixon</td>
+                  <td>System Architect</td>
+                  <td>Edinburgh</td>
+                  <td>61</td>
+                  <td>2011/04/25</td>
+                  <td>$320,800</td>
+              </tr>
+              <tr>
+                  <td>Garrett Winters</td>
+                  <td>Accountant</td>
+                  <td>Tokyo</td>
+                  <td>63</td>
+                  <td>2011/07/25</td>
+                  <td>$170,750</td>
+              </tr>
+              <tr>
+                  <td>Ashton Cox</td>
+                  <td>Junior Technical Author</td>
+                  <td>San Francisco</td>
+                  <td>66</td>
+                  <td>2009/01/12</td>
+                  <td>$86,000</td>
+              </tr>
+              <tr>
+                  <td>Cedric Kelly</td>
+                  <td>Senior Javascript Developer</td>
+                  <td>Edinburgh</td>
+                  <td>22</td>
+                  <td>2012/03/29</td>
+                  <td>$433,060</td>
+              </tr>
+              <tr>
+                  <td>Airi Satou</td>
+                  <td>Accountant</td>
+                  <td>Tokyo</td>
+                  <td>33</td>
+                  <td>2008/11/28</td>
+                  <td>$162,700</td>
+              </tr>
+              <tr>
+                  <td>Brielle Williamson</td>
+                  <td>Integration Specialist</td>
+                  <td>New York</td>
+                  <td>61</td>
+                  <td>2012/12/02</td>
+                  <td>$372,000</td>
+              </tr>
+              <tr>
+                  <td>Herrod Chandler</td>
+                  <td>Sales Assistant</td>
+                  <td>San Francisco</td>
+                  <td>59</td>
+                  <td>2012/08/06</td>
+                  <td>$137,500</td>
+              </tr>
+              <tr>
+                  <td>Rhona Davidson</td>
+                  <td>Integration Specialist</td>
+                  <td>Tokyo</td>
+                  <td>55</td>
+                  <td>2010/10/14</td>
+                  <td>$327,900</td>
+              </tr>
+              <tr>
+                  <td>Colleen Hurst</td>
+                  <td>Javascript Developer</td>
+                  <td>San Francisco</td>
+                  <td>39</td>
+                  <td>2009/09/15</td>
+                  <td>$205,500</td>
+              </tr>
+              <tr>
+                  <td>Sonya Frost</td>
+                  <td>Software Engineer</td>
+                  <td>Edinburgh</td>
+                  <td>23</td>
+                  <td>2008/12/13</td>
+                  <td>$103,600</td>
+              </tr>
+              <tr>
+                  <td>Jena Gaines</td>
+                  <td>Office Manager</td>
+                  <td>London</td>
+                  <td>30</td>
+                  <td>2008/12/19</td>
+                  <td>$90,560</td>
+              </tr>
+              <tr>
+                  <td>Quinn Flynn</td>
+                  <td>Support Lead</td>
+                  <td>Edinburgh</td>
+                  <td>22</td>
+                  <td>2013/03/03</td>
+                  <td>$342,000</td>
+              </tr>
+              <tr>
+                  <td>Charde Marshall</td>
+                  <td>Regional Director</td>
+                  <td>San Francisco</td>
+                  <td>36</td>
+                  <td>2008/10/16</td>
+                  <td>$470,600</td>
+              </tr>
+              <tr>
+                  <td>Haley Kennedy</td>
+                  <td>Senior Marketing Designer</td>
+                  <td>London</td>
+                  <td>43</td>
+                  <td>2012/12/18</td>
+                  <td>$313,500</td>
+              </tr>
+              <tr>
+                  <td>Tatyana Fitzpatrick</td>
+                  <td>Regional Director</td>
+                  <td>London</td>
+                  <td>19</td>
+                  <td>2010/03/17</td>
+                  <td>$385,750</td>
+              </tr>
+              <tr>
+                  <td>Michael Silva</td>
+                  <td>Marketing Designer</td>
+                  <td>London</td>
+                  <td>66</td>
+                  <td>2012/11/27</td>
+                  <td>$198,500</td>
+              </tr>
+              <tr>
+                  <td>Paul Byrd</td>
+                  <td>Chief Financial Officer (CFO)</td>
+                  <td>New York</td>
+                  <td>64</td>
+                  <td>2010/06/09</td>
+                  <td>$725,000</td>
+              </tr>
+              <tr>
+                  <td>Gloria Little</td>
+                  <td>Systems Administrator</td>
+                  <td>New York</td>
+                  <td>59</td>
+                  <td>2009/04/10</td>
+                  <td>$237,500</td>
+              </tr>
+              <tr>
+                  <td>Bradley Greer</td>
+                  <td>Software Engineer</td>
+                  <td>London</td>
+                  <td>41</td>
+                  <td>2012/10/13</td>
+                  <td>$132,000</td>
+              </tr>
+              <tr>
+                  <td>Dai Rios</td>
+                  <td>Personnel Lead</td>
+                  <td>Edinburgh</td>
+                  <td>35</td>
+                  <td>2012/09/26</td>
+                  <td>$217,500</td>
+              </tr>
+              <tr>
+                  <td>Jenette Caldwell</td>
+                  <td>Development Lead</td>
+                  <td>New York</td>
+                  <td>30</td>
+                  <td>2011/09/03</td>
+                  <td>$345,000</td>
+              </tr>
+              <tr>
+                  <td>Yuri Berry</td>
+                  <td>Chief Marketing Officer (CMO)</td>
+                  <td>New York</td>
+                  <td>40</td>
+                  <td>2009/06/25</td>
+                  <td>$675,000</td>
+              </tr>
+              <tr>
+                  <td>Caesar Vance</td>
+                  <td>Pre-Sales Support</td>
+                  <td>New York</td>
+                  <td>21</td>
+                  <td>2011/12/12</td>
+                  <td>$106,450</td>
+              </tr>
+              <tr>
+                  <td>Doris Wilder</td>
+                  <td>Sales Assistant</td>
+                  <td>Sidney</td>
+                  <td>23</td>
+                  <td>2010/09/20</td>
+                  <td>$85,600</td>
+              </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.panel panel-default -->
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h3 class="panel-title">Detalle de Inscripción / Asistente</h3></div>
+        <div class="panel-body">
+
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <p class="navbar-brand" >Inscripción #Id: 43246</p>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <button type="button" class="btn btn-default navbar-btn"><i class="glyphicon glyphicon-th-large"></i>Grabar</button>
+                <!--<a class="navbar-brand" href="#/customers"><i class="glyphicon glyphicon-th-large"></i> Grabar </a>-->
+
+              </li>
+              <li><a class="navbar-brand " href="#/edit-customer/0"><i class="glyphicon glyphicon-plus"></i> Cancelar </a></li>
+            </ul>
+          </div>
+        </nav>
+
+
+          <div class="header">
+            <h3 class="title">Datos de la Inscripción #Id: 1234</h3>
+          </div>
+          <form role="form" class="form-horizontal">
+
+            <div class="form-group">
+              <div class="col-sm-3"><label>Núm. Pedido</label><input class="form-control" placeholder="Nº pedido" type="text"></div>
+              <div class="col-sm-3"><label>Fecha Inscripción</label>
+                <div class='input-group date' >
+                  <input type='text' class="form-control" />
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </div>
+              <div class="col-sm-2"><label>Tipo</label><input class="form-control" type="text" disabled></div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-sm-12">Facturada a</label>
+              <div class="col-sm-4"><input class="form-control" placeholder="Nombre" type="text"><div class="help">Indicar nombre</div></div>
+              <div class="col-sm-5"><input class="form-control" placeholder="Apellidos" type="text"><div class="help">Indicar apellidos</div></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-12">Dirección de Facturación</label>
+              <div class="col-sm-6"><input class="form-control" placeholder="Empresa" type="text"></div>
+              <div class="col-sm-3"><input class="form-control" placeholder="CIF, NIF o Número de IVA" type="text"></div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-9"><input class="form-control" placeholder="Calle, plaza, ..." type="text"></div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-3"><label>Zona</label><select class="form-control">
+                                                          <option>Península</option>
+                                                          <option>Canarias</option>
+                                                          <option>Europa</option>
+                                                          <option>Resto del mundo</option>
+                                                        </select></div>
+              <div class="col-sm-3"><label>País</label><select class="form-control">
+                                                          <option>España</option>
+                                                          <option>Francia</option>
+                                                        </select></div>
+              <div class="col-sm-3"><label>Provincia</label><select class="form-control">
+                                                          <option>Madrid</option>
+                                                          <option>Barcelona</option>
+                                                        </select></div>
+              <div class="col-sm-3"><label>Municipio</label><select class="form-control">
+                                                          <option>Madrid</option>
+                                                          <option>Barcelona</option>
+                                                        </select></div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-6"><input class="form-control" placeholder="Localidad" type="text"></div>
+              <div class="col-sm-2"><input class="form-control" placeholder="Cód. Postal" type="text"></div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-6"><label>Email</label><input class="form-control" placeholder="correo@dominio.com" type="text"></div>
+              <div class="col-sm-3"><label>Teléfono</label><input class="form-control" placeholder="913274340" type="text"></div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-3"><label>Estado</label><select class="form-control">
+                                                          <option>Pago verificado</option>
+                                                          <option>Pago no verificado</option>
+                                                          <option>Canelado</option>
+                                                        </select>
+              </div>
+              <div class="col-sm-6"><label>Motivo Cancelación</label>
+                <textarea class="form-control" id="TextArea"></textarea>
+              </div>
+            </div>
+
+<!--
+
+motivoCancelacion (evn_inscripciones)
+importeBruto(evn_inscripciones)
+importeNeto (web_bono_facturacion)
+
+asistentes(array) {
+	idAsistente
+	nombre
+	apellidos
+	cargo
+email
+telefono
+
+-->
+
+        </div>
+    </div>
+    <!-- /.panel panel-default -->
+
+    </div>
+    <!-- /.container -->
+
+
+    <!-- build:js assets/lib.js -->
+
+    <!-- Non-module JS libs -->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="../node_modules/core-js/client/shim.min.js"></script>
+
+    <!-- Load libraries -->
+    <script src="../node_modules/zone.js/dist/zone.js"></script>
+    <script src="../node_modules/reflect-metadata/Reflect.js"></script>
+
+    <!-- DataTables -->
+    <script src="../node_modules/datatables.net/js/jquery.dataTables.js"></script>
+    <script src="../node_modules/datatables.net-bs/js/dataTables.bootstrap.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- build:js assets/app.js -->
+    <script src="tmp/app/bundle.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:remove -->
+    <script src="../node_modules/systemjs/dist/system.js"></script>
+    <script src="systemjs.conf.js"></script>
+    <script>
+      System.import('app/main.js')
+        .catch(function(err) { console.error(err); });
+    </script>
+    <!-- endbuild -->
+
+
+
+  <script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+    </script>
+
+  </body>
+</html>

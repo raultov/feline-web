@@ -1,0 +1,59 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">{{brand}}</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a [routerLink]="['/']">Home</a></li>
+        <li><a [routerLink]="['/simplebind']">Simplebind</a></li>
+        <li><a [routerLink]="['/todolist']">Todolist</a></li>
+        <li><a href="#">{{item}}</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+          <ul id="login-dp" class="dropdown-menu">
+    				<li>
+    					 <div class="row">
+    							<div class="col-md-12">
+    								 <form [ngFormModel]="form" class="form" role="form" method="post" accept-charset="UTF-8" id="login-nav">
+    										<div class="form-group">
+    											 <label class="sr-only" for="exampleInputEmail2">Email address</label>
+    											 <input ngControl="username" type="email"
+                                  class="form-control"
+                                  id="exampleInputEmail2"
+                                  placeholder="Email address"
+                                  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                                  required>
+                           <div *ngIf="!username.valid && username.dirty">
+                             <p class="error-msg" *ngIf="username.errors.required">Email es obligatorio</p>
+                             <p class="error-msg" *ngIf="username.errors && username.errors.pattern">Email mal formado</p>
+                           </div>
+    										</div>
+    										<div class="form-group">
+    											 <label class="sr-only" for="exampleInputPassword2">Password</label>
+    											 <input ngControl="password" type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                           <div *ngIf="!password.valid && password.dirty">
+                             <p class="error-msg" *ngIf="password.errors.required">Password es obligatorio</p>
+                           </div>
+    										</div>
+    										<div class="form-group">
+    											 <input [disabled]="!form.valid" type="submit" (click)="auth()" value="Send" class="btn btn-primary btn-block" />
+    										</div>
+    								 </form>
+    							</div>
+    					 </div>
+    				</li>
+    			</ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

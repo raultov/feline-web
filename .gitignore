@@ -1,0 +1,12 @@
+.vscode/
+/node_modules
+/bower_components
+/build
+/report
+/typings
+/src/tmp
+.DS_Store
+/src/assets/styles/*.css
+*.log
+/src/app/**/*.js
+/src/app/**/*.js.map

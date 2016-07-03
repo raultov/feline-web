@@ -1,0 +1,59 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-home"></i> Lista de Eventos</h3>
+    </div>
+    <div class="panel-body">
+
+      <button (click)="changeName(1)">Change Name 1</button>
+      <button (click)="changeName(2)">Change Name 2</button>
+<!--
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="tipoEventos" class="col-md-2 control-label">Tipo de Evento: </label>
+              <div class="col-md-4 input-group">
+                <span class="input-group-btn">
+                  <select [ngModel]="selectedTipoEvento" (change)="onChangeTipoEvento($event.target.value)" class="form-control" id="tipoEventos">
+                    <option [ngValue]="key" *ngFor='let key of tiposEventos | asJsonFields'
+                        value="{{key.value.idTipoEvento}}">{{key.value.denominacion}}</option>
+                  </select>
+                </span>
+              </div>
+
+              <label for="areas" class="col-md-2 control-label">Área: </label>
+              <div class="col-md-4 input-group">
+                <span class="input-group-btn">
+                  <select [ngModel]="selectedArea" (change)="onChangeArea($event.target.value)" class="form-control" id="areas">
+                    <option value=""></option>
+                    <option [ngValue]="key" *ngFor='let key of areas | asJsonFields'
+                        value="{{key.value.idArea}}">{{key.value.denominacion}}</option>
+                  </select>
+                </span>
+              </div>
+
+              <label for="years" class="col-md-2 control-label">Año: </label>
+              <div class="col-md-4 input-group">
+                <span class="input-group-btn">
+                  <select [ngModel]="selectedYear" (change)="onChangeYear($event.target.value)" class="form-control" id="years">
+                    <option value=""></option>
+                    <option [ngValue]="key" *ngFor='let key of years'
+                        value="{{key}}">{{key}}</option>
+                  </select>
+                </span>
+              </div>
+            </div>
+          </div>
+
+        <div *ngFor='let key of eventos | asJsonFields' class="row">
+          <div class="col-md-12">
+            <div class="well well-sm">
+              <h5>{{key.value.edicion}} - {{key.value.denominacionTipoEvento}}</h5>
+              {{key.value.denominacionLugar}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    -->
+    </div>
+</div>
