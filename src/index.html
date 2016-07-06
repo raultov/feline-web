@@ -15,7 +15,7 @@
 
 
     <!-- DataTables -->
-    <link rel="stylesheet" type="text/css" href="../node_modules/datatables.net-bs/css/dataTables.bootstrap.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../node_modules/datatables.net-bs/css/dataTables.bootstrap.css"/>-->
 
     <style>
     .v-align {
@@ -375,11 +375,9 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <button type="button" class="btn btn-default navbar-btn"><i class="glyphicon glyphicon-th-large"></i>Grabar</button>
-                <!--<a class="navbar-brand" href="#/customers"><i class="glyphicon glyphicon-th-large"></i> Grabar </a>-->
-
+                <button type="button" class="btn btn-default navbar-btn"><i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>Grabar</button>
               </li>
-              <li><a class="navbar-brand " href="#/edit-customer/0"><i class="glyphicon glyphicon-plus"></i> Cancelar </a></li>
+              <li><a class="navbar-brand " href="#/edit-customer/0"><i class="fa fa-ban fa-fw" aria-hidden="true"></i> Cancelar </a></li>
             </ul>
           </div>
         </nav>
@@ -395,7 +393,7 @@
               <div class="col-sm-3"><label>Fecha Inscripción</label>
                 <div class='input-group date' >
                   <input type='text' class="form-control" />
-                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                  <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
                 </div>
               </div>
               <div class="col-sm-2"><label>Tipo</label><input class="form-control" type="text" disabled></div>
@@ -506,6 +504,7 @@ telefono
     <!-- build:remove -->
     <script src="../node_modules/systemjs/dist/system.js"></script>
     <script src="systemjs.conf.js"></script>
+    <script src="/node_modules/rxjs/bundles/Rx.js"></script>
     <script>
       System.import('app/main.js')
         .catch(function(err) { console.error(err); });

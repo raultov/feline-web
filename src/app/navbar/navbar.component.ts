@@ -31,6 +31,27 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+      let token = localStorage.getItem('token');
+
+      if (token != null) {
+        this.loginService.getUserData(token).subscribe(
+          (result => {
+                this.userLogged.loggedIn = true;
+                this.userLogged.name = (<any>result).nombre;
+                this.userLogged.email = (<any>result).email;
+                this.cd.markForCheck(); // marks path
+          }),
+          (err => {
+                localStorage.setItem('token', null);
+                this.userLogged.loggedIn = false;
+                this.userLogged.name = '';
+                this.userLogged.email = '';
+                this.cd.markForCheck(); // marks path
+                console.log(err);
+          })
+        );
+      }
+
       this.subscription = this.loginService.navItem$.subscribe(
         item =>  {
             this.userLogged = item;
@@ -67,10 +88,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.loginService.auth(this.username.value, this.password.value).subscribe(
         data => {
           localStorage.setItem('token', data);
-          this.userLogged.loggedIn = true;
-          this.userLogged.name = 'My Name';
-          this.userLogged.email = 'my.email@example.com';
-          this.cd.markForCheck(); // marks path
+          location.reload();
           console.log('Token: ' + data);
         },
         err => {

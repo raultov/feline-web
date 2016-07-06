@@ -16,8 +16,8 @@ export interface UserLogged {
 export class LoginService {
 
   userLogged: UserLogged = {
-    name: 'hola',
-    email: 'holita@adios.com',
+    name: 'name',
+    email: 'email@example.com',
     loggedIn: true
   };
 
@@ -75,5 +75,19 @@ export class LoginService {
 
     return this.http.post(this.config.api + '/oauth/token', creds, opts)
     .map(response => response.json().access_token);
+  }
+
+  getUserData(token: string): Observable<JSON> {
+    let headers: Headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + token);
+
+    let opts: RequestOptionsArgs = {
+      headers: headers
+    };
+
+    let ret = this.http.get(this.config.api + '/v1/users', opts)
+    .map(response => response.json());
+
+    return ret;
   }
 }
