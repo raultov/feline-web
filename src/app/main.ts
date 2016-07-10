@@ -7,6 +7,8 @@ import {APP_ROUTER_PROVIDERS} from './app.routes';
 import { provide } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { CONFIG_TOKEN, config } from './config/configuration';
+import { TrackService } from './services/tracks.services';
+import { LoginService } from './login/login.service';
 
 declare var ENV: string;
 
@@ -17,6 +19,8 @@ if (ENV === 'production') {
 bootstrap(AppComponent, [
     disableDeprecatedForms(),
     provideForms(),
+    LoginService,
+    TrackService,
     APP_ROUTER_PROVIDERS,
     HTTP_PROVIDERS,
     provide(CONFIG_TOKEN, {useValue: config})

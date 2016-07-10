@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { EventService } from '../services/events.services';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { TrackService } from '../services/tracks.services';
 import { JsonFieldsPipe } from '../pipes/json-iterator.pipe';
 // import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/observable/forkJoin';
@@ -8,15 +8,18 @@ import { LoginService } from '../login/login.service';
 
 @Component({
     selector: 'as-home',
-    providers: [ EventService ],
     templateUrl: 'app/home/home.html',
     styleUrls: [
         'app/home/home.css'
     ],
     pipes: [ JsonFieldsPipe ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   title: string;
+
+  tracks: JSON;
+
+  private tracksSubscription: any;
 
   /*eventos: JSON;
   tiposEventos: JSON;
@@ -27,9 +30,8 @@ export class HomeComponent implements OnInit {
   selectedArea: string;
   selectedYear: string;
 */
-  constructor(private eventService: EventService,
+  constructor(private trackService: TrackService,
               private loginService: LoginService) {
-    this.loginService = loginService;
   }
 
   notLogged() {
@@ -68,6 +70,24 @@ export class HomeComponent implements OnInit {
 */
   ngOnInit() {
     this.title = '¡Welcome to Angular 2 Starter!';
+
+    this.tracksSubscription = this.trackService.getListOfTracks('', '', '0').subscribe(
+      (result => {
+                  this.tracks = result;
+                  // this.selectedTipoEvento = this.tiposEventos[0].idTipoEvento;
+                  jQuery('#example').DataTable();
+                }),
+      (err => {
+                  if (err.status === 401) {
+                    // Token expired, enable login menu
+                    this.loginService.notLoggedIn();
+                    // TODO Inform user
+                  }
+
+                  console.log(err);
+      })
+    );
+
 /*
     this.eventService.getListTypesEvent().subscribe(
       (result => {
@@ -111,5 +131,9 @@ export class HomeComponent implements OnInit {
       (err => console.log(err))
     );
 */
+  }
+
+  ngOnDestroy() {
+    this.tracksSubscription.unsubscribe();
   }
 }
