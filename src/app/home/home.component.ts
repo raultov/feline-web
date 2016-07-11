@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewChecked } from '@angular/core';
 import { TrackService } from '../services/tracks.services';
 import { JsonFieldsPipe } from '../pipes/json-iterator.pipe';
 // import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/observable/forkJoin';
+declare var jQuery;
 
 import { LoginService } from '../login/login.service';
 
@@ -14,7 +15,7 @@ import { LoginService } from '../login/login.service';
     ],
     pipes: [ JsonFieldsPipe ]
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
   title: string;
 
   tracks: JSON;
@@ -36,6 +37,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   notLogged() {
     this.loginService.notLoggedIn();
+  }
+
+  ngAfterViewChecked() {
+    (<any>jQuery('#trackstable')).DataTable();
   }
 
 /*
@@ -74,8 +79,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.tracksSubscription = this.trackService.getListOfTracks('', '', '0').subscribe(
       (result => {
                   this.tracks = result;
-                  // this.selectedTipoEvento = this.tiposEventos[0].idTipoEvento;
-                  jQuery('#example').DataTable();
                 }),
       (err => {
                   if (err.status === 401) {

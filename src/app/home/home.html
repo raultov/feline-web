@@ -2,43 +2,26 @@
   <!-- Default panel contents -->
   <div class="panel-heading">
     <h3 class="panel-title">Tracks</h3></div>
-    <table id="example" class="table table-hover">
+    <table *ngIf="tracks" id="trackstable" class="table table-hover">
       <thead>
           <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Identifier</th>
+              <th>Start Date</th>
+              <th>End Date</th>
           </tr>
       </thead>
       <tfoot>
           <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Identifier</th>
+              <th>Start Date</th>
+              <th>End Date</th>
           </tr>
       </tfoot>
       <tbody>
-          <tr>
-              <td>Tiger Nixon</td>
-              <td>System Architect</td>
-              <td>Edinburgh</td>
-              <td>61</td>
-              <td>2011/04/25</td>
-              <td>$320,800</td>
-          </tr>
-          <tr>
-              <td>Garrett Winters</td>
-              <td>Accountant</td>
-              <td>Tokyo</td>
-              <td>63</td>
-              <td>2011/07/25</td>
-              <td>$170,750</td>
+          <tr *ngFor='let key of tracks | asJsonFields'>
+              <td>{{key.value.apiTraRouteId}}</td>
+              <td>{{key.value.startDate}}</td>
+              <td>{{key.value.endDate}}</td>
           </tr>
     </tbody>
   </table>

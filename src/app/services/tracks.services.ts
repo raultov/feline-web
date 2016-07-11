@@ -24,7 +24,7 @@ export class TrackService {
     params.set('startDateTo', startDateTo);
     params.set('orderAscDesc', 'DESC');
     params.set('page', page);
-    params.set('numRegistersPerPage', '10');
+    params.set('numRegistersPerPage', '2000');
 
     let opts: RequestOptionsArgs = {
       headers: headers,
