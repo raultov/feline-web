@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, AfterViewChecked } from '@angular/core';
 import { TrackService } from '../services/tracks.services';
 import { JsonFieldsPipe } from '../pipes/json-iterator.pipe';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 // import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/observable/forkJoin';
 declare var jQuery;
@@ -13,7 +14,8 @@ import { LoginService } from '../login/login.service';
     styleUrls: [
         'app/home/home.css'
     ],
-    pipes: [ JsonFieldsPipe ]
+    pipes: [ JsonFieldsPipe ],
+    directives: [ ROUTER_DIRECTIVES ]
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
   title: string;

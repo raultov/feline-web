@@ -36,6 +36,10 @@ export class TrackService {
 
     return ret;
   }
+
+  getListOfPoints(idTrack: string): Observable<JSON> {
+    return null;
+  }
 /*
   getListTypesEvent(): Observable<JSON> {
     let headers: Headers = new Headers();

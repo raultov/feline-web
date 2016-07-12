@@ -3,7 +3,7 @@ import {enableProdMode} from '@angular/core';
 import {disableDeprecatedForms, provideForms} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {APP_ROUTER_PROVIDERS} from './app.routes';
-
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { provide } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { CONFIG_TOKEN, config } from './config/configuration';
@@ -23,5 +23,6 @@ bootstrap(AppComponent, [
     TrackService,
     APP_ROUTER_PROVIDERS,
     HTTP_PROVIDERS,
-    provide(CONFIG_TOKEN, {useValue: config})
+    provide(CONFIG_TOKEN, {useValue: config}),
+    provide(LocationStrategy, {useClass: PathLocationStrategy})
 ]);
