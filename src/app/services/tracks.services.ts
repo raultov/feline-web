@@ -38,10 +38,6 @@ export class TrackService {
   }
 
   getListOfPoints(idTrack: string): Observable<JSON> {
-    return null;
-  }
-/*
-  getListTypesEvent(): Observable<JSON> {
     let headers: Headers = new Headers();
     let token: string = localStorage.getItem('token');
     headers.append('Authorization', 'Bearer ' + token);
@@ -50,12 +46,12 @@ export class TrackService {
       headers: headers
     };
 
-    let ret = this.http.get(this.config.api + '/v1/admin/events-mgm/types', opts)
+    let ret = this.http.get(this.config.api + '/v1/tracks/' + idTrack + '/points', opts)
     .map(response => response.json());
 
     return ret;
   }
-
+/*
   getListAreas(): Observable<JSON> {
     let headers: Headers = new Headers();
     let token: string = localStorage.getItem('tokenCliente');
@@ -66,26 +62,6 @@ export class TrackService {
     };
 
     let ret = this.http.get(this.config.api + '/v1/generics/areas', opts)
-    .map(response => response.json());
-
-    return ret;
-  }
-
-  getListEvents(idTipoEvento: string, idArea: string, year: string): Observable<JSON> {
-    let headers: Headers = new Headers();
-    let token: string = localStorage.getItem('token');
-    headers.append('Authorization', 'Bearer ' + token);
-    let params: URLSearchParams = new URLSearchParams();
-    params.set('idTipoEvento', idTipoEvento);
-    params.set('idArea', idArea);
-    params.set('year', year);
-
-    let opts: RequestOptionsArgs = {
-      headers: headers,
-      search: params
-    };
-
-    let ret = this.http.get(this.config.api + '/v1/admin/events-mgm', opts)
     .map(response => response.json());
 
     return ret;

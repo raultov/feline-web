@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewChecked, Inject } from '@angular/core';
 import { TrackService } from '../services/tracks.services';
 import { JsonFieldsPipe } from '../pipes/json-iterator.pipe';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 // import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/observable/forkJoin';
 declare var jQuery;
@@ -24,17 +24,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   private tracksSubscription: any;
 
-  /*eventos: JSON;
-  tiposEventos: JSON;
-  areas: JSON;
-  years: string[] = [];
-
-  selectedTipoEvento: string;
-  selectedArea: string;
-  selectedYear: string;
-*/
   constructor(private trackService: TrackService,
-              private loginService: LoginService) {
+              private loginService: LoginService,
+              @Inject(Router) private router: Router) {
   }
 
   notLogged() {
@@ -45,36 +37,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
     (<any>jQuery('#trackstable')).DataTable();
   }
 
-/*
-  onChangeTipoEvento(newTipoEvento) {
-    this.selectedTipoEvento = newTipoEvento;
-    this.selectedArea = '';
-
-    this.eventService.getListEvents(this.selectedTipoEvento, '', this.selectedYear).subscribe(
-      (res => this.eventos = res),
-      (err => console.log(err))
-    );
+  goToTrackPoints(idTrack) {
+    this.router.navigate(['/track', idTrack ]);
   }
 
-  onChangeArea(newArea) {
-    this.selectedArea = newArea;
-    this.selectedTipoEvento = '';
-
-    this.eventService.getListEvents('', newArea, this.selectedYear).subscribe(
-      (res => this.eventos = res),
-      (err => console.log(err))
-    );
-  }
-
-  onChangeYear(newYear) {
-    this.selectedYear = newYear;
-
-    this.eventService.getListEvents(this.selectedTipoEvento, this.selectedArea, this.selectedYear).subscribe(
-      (res => this.eventos = res),
-      (err => console.log(err))
-    );
-  }
-*/
   ngOnInit() {
     this.title = '¡Welcome to Angular 2 Starter!';
 
