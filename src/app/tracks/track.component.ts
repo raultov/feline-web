@@ -15,32 +15,36 @@ export class TrackComponent implements OnInit, OnDestroy {
     idTrack: string;
     points: JSON;
 
+    private listenParameters: any;
+    private subscribeGetPoints: any;
+
     constructor(private trackService: TrackService,
                 private loginService: LoginService,
                 private route: ActivatedRoute) {}
 
     ngOnInit() {
-        this.idTrack = this.route.snapshot.params['id'];
+        this.listenParameters = this.route.params.subscribe(params => {
+            this.idTrack = params['id'];
 
-        this.trackService.getListOfPoints(this.idTrack).subscribe(
-            (result => {
-                  this.points = result;
-                }),
-            (err => {
-                  if (err.status === 401) {
-                    // Token expired, enable login menu
-                    this.loginService.notLoggedIn();
-                    // TODO Inform user
-                  }
+            this.subscribeGetPoints = this.trackService.getListOfPoints(this.idTrack).subscribe(
+                (result => {
+                    this.points = result;
+                    }),
+                (err => {
+                    if (err.status === 401) {
+                        // Token expired, enable login menu
+                        this.loginService.notLoggedIn();
+                        // TODO Inform user
+                    }
 
-                  console.log(err);
-      })
-    );
-
-        console.log('Init: ' + this.idTrack);
+                    console.log(err);
+                })
+            );
+        });
     }
 
     ngOnDestroy() {
-        console.log('Destroy');
+        this.listenParameters.unsubscribe();
+        this.subscribeGetPoints.unsubscribe();
     }
 }

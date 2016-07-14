@@ -8,6 +8,7 @@
               <th>Identifier</th>
               <th>Start Date</th>
               <th>End Date</th>
+              <th>Action</th>
           </tr>
       </thead>
       <tfoot>
@@ -15,13 +16,15 @@
               <th>Identifier</th>
               <th>Start Date</th>
               <th>End Date</th>
+              <th>Action</th>
           </tr>
       </tfoot>
       <tbody>
-          <tr *ngFor='let key of tracks | asJsonFields' (click)='goToTrackPoints({{key.value.apiTraRouteId}})'>
+          <tr *ngFor='let key of tracks | asJsonFields'>
               <td>{{key.value.apiTraRouteId}}</td>
               <td>{{key.value.startDate}}</td>
               <td>{{key.value.endDate}}</td>
+              <td><button (click)='goToTrackPoints(key.value.apiTraRouteId)' class="btn-success">Watch</button>
           </tr>
     </tbody>
   </table>
