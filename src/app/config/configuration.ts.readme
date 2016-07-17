@@ -13,3 +13,5 @@ export let config: Configuration = {
 
 export let configGoogleMapsApi = new LazyMapsAPILoaderConfig();
 configGoogleMapsApi.apiKey = 'place-here-your-api-key-for-google-maps';
+
+// NOTE: rename this file to configuration.ts
