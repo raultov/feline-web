@@ -8,9 +8,8 @@ export interface Configuration {
 }
 
 export let config: Configuration = {
-  api: 'http://ayoza.com:8081/feline-rest',
+  api: 'place-here-your-rest-url',
 };
 
 export let configGoogleMapsApi = new LazyMapsAPILoaderConfig();
-configGoogleMapsApi.apiKey = 'AIzaSyAxpkLY1rVXnPu8RtAypCU0ZE7tSdOMKXY';
-
+configGoogleMapsApi.apiKey = 'place-here-your-api-key-for-google-maps';

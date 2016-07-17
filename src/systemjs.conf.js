@@ -11,7 +11,9 @@
     // map tells the System loader where to look for things
     var map = {
         'app': 'src/tmp/app',
-        'test': 'src/tmp/test'
+        'test': 'src/tmp/test',
+        'angular2-google-maps':       'https://npmcdn.com/angular2-google-maps@0.12.0'
+        // 'angular2-google-maps': 'vendor/angular2-google-maps'
     };
 
     // packages tells the System loader how to load when no filename and/or no extension
@@ -24,7 +26,11 @@
         },
         'rxjs': {
             defaultExtension: 'js'
-        }
+        },
+        'angular2-google-maps/core': {
+            defaultExtension: 'js',
+            main: 'core.umd.js' // you can also use core.umd.js here, if you want faster loads
+        }        
     };
 
     // List npm packages here
@@ -78,6 +84,7 @@
     // filterSystemConfig - index.html's chance to modify config before we register it.
     if (global.filterSystemConfig) { global.filterSystemConfig(config); }
 
-    System.config(config);
+    System.config(config); 
 
 })(this);
+

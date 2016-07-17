@@ -8,5 +8,6 @@
 .DS_Store
 /src/assets/styles/*.css
 *.log
+configuration.ts
 /src/app/**/*.js
 /src/app/**/*.js.map
