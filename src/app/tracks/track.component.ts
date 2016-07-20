@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GOOGLE_MAPS_DIRECTIVES } from 'angular2-google-maps/core';
+import { GOOGLE_MAPS_DIRECTIVES, GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
 import { TrackService } from '../services/tracks.services';
 import { LoginService } from '../login/login.service';
 
@@ -9,7 +9,8 @@ import { LoginService } from '../login/login.service';
     styleUrls: [
         'app/tracks/track.css'
     ],
-    directives: [GOOGLE_MAPS_DIRECTIVES]
+    directives: [GOOGLE_MAPS_DIRECTIVES],
+    providers: [GoogleMapsAPIWrapper]
 })
 
 export class TrackComponent implements OnInit, OnDestroy {
@@ -25,7 +26,8 @@ export class TrackComponent implements OnInit, OnDestroy {
 
     constructor(private trackService: TrackService,
                 private loginService: LoginService,
-                private route: ActivatedRoute) {}
+                private route: ActivatedRoute,
+                private mapsWrapper: GoogleMapsAPIWrapper) {}
 
     ngOnInit() {
         this.listenParameters = this.route.params.subscribe(params => {
@@ -34,7 +36,13 @@ export class TrackComponent implements OnInit, OnDestroy {
             this.subscribeGetPoints = this.trackService.getListOfPoints(this.idTrack).subscribe(
                 (result => {
                     this.points = result;
-                    }),
+
+                    this.mapsWrapper.getNativeMap().then((map) => {
+                        console.log(map);
+                    });
+
+                    // console.log(native);
+                }),
                 (err => {
                     if (err.status === 401) {
                         // Token expired, enable login menu
