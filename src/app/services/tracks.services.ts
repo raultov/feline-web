@@ -51,6 +51,22 @@ export class TrackService {
 
     return ret;
   }
+
+  getTrackCenter(idTrack: string): Observable<JSON> {
+    let headers: Headers = new Headers();
+    let token: string = localStorage.getItem('token');
+    headers.append('Authorization', 'Bearer ' + token);
+
+    let opts: RequestOptionsArgs = {
+      headers: headers
+    };
+
+    let ret = this.http.get(this.config.api + '/v1/tracks/' + idTrack + '/center', opts)
+    .map(response => response.json());
+
+    return ret;
+  }
+
 /*
   getListAreas(): Observable<JSON> {
     let headers: Headers = new Headers();

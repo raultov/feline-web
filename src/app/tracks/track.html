@@ -2,6 +2,6 @@
     Track
 </div>
 
-<sebm-google-map [latitude]="lat" [longitude]="lng">
+<sebm-google-map [latitude]="latCenter" [longitude]="lngCenter">
   <sebm-google-map-marker *ngFor='let point of points' [latitude]="point.latitude" [longitude]="point.longitude"></sebm-google-map-marker>
 </sebm-google-map>
