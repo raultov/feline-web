@@ -19,9 +19,7 @@ import { LoginService } from '../login/login.service';
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
   title: string;
-
   tracks: JSON;
-
   private tracksSubscription: any;
 
   constructor(private trackService: TrackService,

@@ -6,8 +6,7 @@ import {APP_ROUTER_PROVIDERS} from './app.routes';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { provide } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
-import { CONFIG_TOKEN, config, configGoogleMapsApi } from './config/configuration';
-import { GOOGLE_MAPS_PROVIDERS, LazyMapsAPILoaderConfig } from 'angular2-google-maps/core';
+import { CONFIG_TOKEN, config } from './config/configuration';
 import { TrackService } from './services/tracks.services';
 import { LoginService } from './login/login.service';
 
@@ -24,8 +23,6 @@ bootstrap(AppComponent, [
     TrackService,
     APP_ROUTER_PROVIDERS,
     HTTP_PROVIDERS,
-    GOOGLE_MAPS_PROVIDERS,
     provide(CONFIG_TOKEN, {useValue: config}),
-    provide(LocationStrategy, {useClass: PathLocationStrategy}),
-    provide(LazyMapsAPILoaderConfig, {useValue: configGoogleMapsApi})
+    provide(LocationStrategy, {useClass: PathLocationStrategy})
 ]);
