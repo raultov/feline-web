@@ -5,6 +5,8 @@ import { LoginService } from '../login/login.service';
 import { configGoogleMapsApi } from '../config/configuration';
 import { Subject } from 'rxjs/Subject';
 
+declare var google: any;
+
 @Component({
     templateUrl: 'app/tracks/track.html',
     styleUrls: [
