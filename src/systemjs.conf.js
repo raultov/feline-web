@@ -12,7 +12,7 @@
     var map = {
         'app': 'src/tmp/app',
         'test': 'src/tmp/test',
-        'angular2-google-maps':       'https://npmcdn.com/angular2-google-maps@0.12.0'
+        'angular2-google-maps':       'https://unpkg.com/angular2-google-maps@0.12.0'
         // 'angular2-google-maps': 'vendor/angular2-google-maps'
     };
 
