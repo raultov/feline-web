@@ -4,12 +4,12 @@ export const CONFIG_TOKEN = new OpaqueToken('config');
 
 export interface Configuration {
   api: string;
-  apiClientToken: string;
+  apiClientAuthorization: string;
 }
 
 export let config: Configuration = {
   api: 'place-here-your-api-url',
-  apiClientToken: 'place-here-your-client-token'
+  apiClientAuthorization: 'place-here-your-client-token'
 };
 
 export let configGoogleMapsApiKey = 'place-hear-your-google-maps-api-key';
