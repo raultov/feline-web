@@ -1,0 +1,17 @@
+import { OpaqueToken } from '@angular/core';
+
+export const CONFIG_TOKEN = new OpaqueToken('config');
+
+export interface Configuration {
+  api: string;
+  apiClientToken: string;
+}
+
+export let config: Configuration = {
+  api: 'place-here-your-api-url',
+  apiClientToken: 'place-here-your-client-token'
+};
+
+export let configGoogleMapsApiKey = 'place-hear-your-google-maps-api-key';
+
+// Rename this file to configuration.ts
