@@ -54,7 +54,7 @@ export class LoginService {
   auth(username: string, password: string): Observable<string> {
     let creds = 'username=' + username + '&password=' + password + '&grant_type=password&scope=general';
     let headers: Headers = new Headers();
-    headers.append('Authorization', 'Basic Y2xpZW50LXdpdGgtcmVmcmVzaC10b2tlbjpjbGllbnQtd2l0aC1yZWZyZXNoLXRva2VuLXNlY3JldA==');
+    headers.append('Authorization', 'Basic ' + this.config.apiClientToken);
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     let opts: RequestOptionsArgs = {
       headers: headers
@@ -67,7 +67,7 @@ export class LoginService {
   authClient(): Observable<string> {
     let creds = '&grant_type=client_credentials&client_id=client-with-refresh-token';
     let headers: Headers = new Headers();
-    headers.append('Authorization', 'Basic Y2xpZW50LXdpdGgtcmVmcmVzaC10b2tlbjpjbGllbnQtd2l0aC1yZWZyZXNoLXRva2VuLXNlY3JldA==');
+    headers.append('Authorization', 'Basic ' + this.config.apiClientToken);
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     let opts: RequestOptionsArgs = {
       headers: headers

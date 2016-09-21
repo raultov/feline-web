@@ -66,21 +66,4 @@ export class TrackService {
 
     return ret;
   }
-
-/*
-  getListAreas(): Observable<JSON> {
-    let headers: Headers = new Headers();
-    let token: string = localStorage.getItem('tokenCliente');
-    headers.append('Authorization', 'Bearer ' + token);
-
-    let opts: RequestOptionsArgs = {
-      headers: headers
-    };
-
-    let ret = this.http.get(this.config.api + '/v1/generics/areas', opts)
-    .map(response => response.json());
-
-    return ret;
-  }
-*/
 }

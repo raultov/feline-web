@@ -1,10 +1,8 @@
 import {Component} from '@angular/core';
-import {ChildComponent} from './child.component';
 
 @Component({
     selector: 'as-simplebind',
-    templateUrl: 'app/simplebind/simplebind.html',
-    directives: [ChildComponent]
+    templateUrl: 'app/simplebind/simplebind.html'
 })
 export class SimplebindComponent {
     private myname: string;

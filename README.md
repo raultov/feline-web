@@ -5,4 +5,6 @@ This is a fork from https://github.com/antonybudianto/angular2-starter project.
 Getting started with angular-google-maps:
 https://angular-maps.com/docs/getting-started.html
 
+Instructions:
+npm install
 

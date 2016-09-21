@@ -58,10 +58,10 @@ gulp.task('tslint-e2e', function () {
 
 function lintTs(files) {
     return gulp.src(files)
-        .pipe(tslint())
-        .pipe(tslint.report('prose', {
-          summarizeFailureOutput: true
-        }));
+        .pipe(tslint({
+            formatter: "prose"
+          }))
+        .pipe(tslint.report());
 }
 
 function compileTs(files, watchMode) {

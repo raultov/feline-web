@@ -1,7 +1,5 @@
 import {Component, OnInit, Input, ChangeDetectionStrategy, OnDestroy, ChangeDetectorRef} from '@angular/core';
-import {CORE_DIRECTIVES} from '@angular/common';
-import {ROUTER_DIRECTIVES} from '@angular/router';
-import { FormBuilder, ControlGroup, Control, AbstractControl, FORM_DIRECTIVES, Validators } from '@angular/common';
+import { FormBuilder, FormGroup, FormControl, AbstractControl, Validators } from '@angular/forms';
 
 import { LoginService, UserLogged } from '../login/login.service';
 
@@ -11,13 +9,12 @@ import { Subscription } from 'rxjs/Subscription';
     selector: 'as-navbar',
     // providers: [ LoginService ],
     templateUrl: 'app/navbar/navbar.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES]
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class NavbarComponent implements OnInit, OnDestroy {
     @Input() brand: string;
-    form: ControlGroup;
+    form: FormGroup;
     username: AbstractControl;
     password: AbstractControl;
 
@@ -60,9 +57,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
         }
       );
 
-      this.form = new ControlGroup({
-        username: new Control('', Validators.required),
-        password: new Control('', Validators.required)
+      this.form = new FormGroup({
+        username: new FormControl('', Validators.required),
+        password: new FormControl('', Validators.required)
       });
 
       this.username = this.form.controls['username'];

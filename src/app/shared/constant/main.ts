@@ -1,5 +1,5 @@
 export const MAIN = {
     APP: {
-        BRAND: 'Angular 2'
+        BRAND: 'Feline Web'
     }
 };

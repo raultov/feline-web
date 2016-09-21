@@ -1,13 +1,9 @@
 import {Component} from '@angular/core';
-import {CORE_DIRECTIVES} from '@angular/common';
 import {Todo} from './todo.model';
-import {CompletedFilterPipe} from './completed-filter.pipe';
 
 @Component({
     selector: 'as-todolist',
-    templateUrl: 'app/todolist/todolist.html',
-    directives: [CORE_DIRECTIVES],
-    pipes: [CompletedFilterPipe]
+    templateUrl: 'app/todolist/todolist.html'
 })
 export class TodolistComponent {
     public todo: Todo;

@@ -12,9 +12,7 @@
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-left">
         <li><a [routerLink]="['/']">Home</a></li>
-        <li><a [routerLink]="['/simplebind']">Simplebind</a></li>
         <li><a [routerLink]="['/todolist']">Todolist</a></li>
-        <!--<li><a href="#">{{userLogged.email}}</a></li>-->
       </ul>
 
       <ul *ngIf="userLogged.loggedIn" class="nav navbar-nav navbar-right">
@@ -30,10 +28,10 @@
     				<li>
     					 <div class="row">
     							<div class="col-md-12">
-    								 <form [ngFormModel]="form" class="form" role="form" method="post" accept-charset="UTF-8" id="login-nav">
+    								 <form [formGroup]="form" class="form" role="form" method="post" accept-charset="UTF-8" id="login-nav">
     										<div class="form-group">
     											 <label class="sr-only" for="exampleInputEmail2">Email address</label>
-    											 <input ngControl="username" type="email"
+    											 <input formControlName="username" type="email"
                                   class="form-control"
                                   id="exampleInputEmail2"
                                   placeholder="Email address"
@@ -46,7 +44,7 @@
     										</div>
     										<div class="form-group">
     											 <label class="sr-only" for="exampleInputPassword2">Password</label>
-    											 <input ngControl="password" type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+    											 <input formControlName="password" type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
                            <div *ngIf="!password.valid && password.dirty">
                              <p class="error-msg" *ngIf="password.errors.required">Password es obligatorio</p>
                            </div>
